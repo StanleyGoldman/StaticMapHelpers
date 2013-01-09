@@ -74,9 +74,7 @@ namespace Molimentum.StaticMapHelpers
         /// <returns></returns>
         public GoogleStaticMapControl AsImage()
         {
-            _renderMode = RenderMode.Image;
-
-            return this;
+            return AsImage(null);
         }
 
         /// <summary>
@@ -86,6 +84,7 @@ namespace Molimentum.StaticMapHelpers
         /// <returns></returns>
         public GoogleStaticMapControl AsImage(object htmlAttributes)
         {
+            _renderMode = RenderMode.Image;
             _htmlAttributes = htmlAttributes;
 
             return this;

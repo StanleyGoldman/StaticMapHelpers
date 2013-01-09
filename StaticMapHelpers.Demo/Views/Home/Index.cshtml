@@ -31,7 +31,7 @@
     each one getting a different label, and a path connecting the markers.
 </p>
 @{
-    var cities = new [] {
+    var cities = new[] {
        new { Name = "Whangarei", Country = "New Zealand" },
        new { Name = "Auckland", Country = "New Zealand" },
        new { Name = "Tauranga", Country = "New Zealand" }
@@ -39,13 +39,12 @@
 }
 
 @(Html.GoogleStaticMap(320, 200, GoogleMapType.Satellite)
-    .AddMarkers(cities.Zip(Enumerable.Range(1, cities.Length),
-        (city, index) =>
-            new Marker {
-                Style = new MarkerStyle { Label = index.ToString() },
-                Location = new Location(city.Name + ", " + city.Country)
-            }
-    ))
+    .AddMarkers(
+        cities.Select((city, index) => new Marker {
+            Style = new MarkerStyle { Label = (index + 1).ToString() },
+            Location = new Location(city.Name + ", " + city.Country)
+        })
+    )
     .AddPath(new Molimentum.StaticMapHelpers.Path {
         Style = new PathStyle { Color = "red", Weight = 5 },
         Locations = cities.Select(city => new Location(city.Name + ", " + city.Country))
@@ -53,7 +52,7 @@
 
 <pre>
 @@{
-    var cities = new [] {
+    var cities = new[] {
        new { Name = "Whangarei", Country = "New Zealand" },
        new { Name = "Auckland", Country = "New Zealand" },
        new { Name = "Tauranga", Country = "New Zealand" }
@@ -61,13 +60,12 @@
 }
 
 @@(Html.GoogleStaticMap(320, 200, GoogleMapType.Satellite)
-    .AddMarkers(cities.Zip(Enumerable.Range(1, cities.Length),
-        (city, index) =>
-            new Marker {
-                Style = new MarkerStyle { Label = index.ToString() },
-                Location = new Location(city.Name + ", " + city.Country)
-            }
-    ))
+    .AddMarkers(
+        cities.Select((city, index) => new Marker {
+            Style = new MarkerStyle { Label = (index + 1).ToString() },
+            Location = new Location(city.Name + ", " + city.Country)
+        })
+    )
     .AddPath(new Molimentum.StaticMapHelpers.Path {
         Style = new PathStyle { Color = "red", Weight = 5 },
         Locations = cities.Select(city => new Location(city.Name + ", " + city.Country))
