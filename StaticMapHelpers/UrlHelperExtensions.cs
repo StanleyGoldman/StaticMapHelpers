@@ -18,7 +18,6 @@ namespace Molimentum.StaticMapHelpers.Extensions
         public static GoogleStaticMapControl GoogleStaticMap(this UrlHelper url, int width, int height, GoogleMapType mapType)
         {
             return new GoogleStaticMapControl(width, height, mapType)
-                .UseHttps(url.RequestContext.HttpContext.Request.IsSecureConnection)
                 .AsUrl();
         }
     }
