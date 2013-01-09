@@ -7,5 +7,13 @@ namespace Molimentum.StaticMapHelpers
         public MarkerStyle Style { get; set; }
 
         public IEnumerable<Location> Locations { get; set; }
+
+        public Location Location
+        {
+            set
+            {
+                Locations = new[] { value };
+            }
+        }
     }
 }

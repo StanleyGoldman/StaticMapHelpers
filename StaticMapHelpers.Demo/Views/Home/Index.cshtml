@@ -43,12 +43,12 @@
         (city, index) =>
             new Marker {
                 Style = new MarkerStyle { Label = index.ToString() },
-                Locations = new [] { new Location(city.Name + ", "+ city.Country) }
+                Location = new Location(city.Name + ", " + city.Country)
             }
     ))
     .AddPath(new Molimentum.StaticMapHelpers.Path {
         Style = new PathStyle { Color = "red", Weight = 5 },
-        Locations = cities.Select(city => new Location(city.Name + ", "+ city.Country))
+        Locations = cities.Select(city => new Location(city.Name + ", " + city.Country))
     }))
 
 <pre>
@@ -65,11 +65,11 @@
         (city, index) =>
             new Marker {
                 Style = new MarkerStyle { Label = index.ToString() },
-                Locations = new [] { new Location(city.Name + ", "+ city.Country) }
+                Location = new Location(city.Name + ", " + city.Country)
             }
     ))
     .AddPath(new Molimentum.StaticMapHelpers.Path {
         Style = new PathStyle { Color = "red", Weight = 5 },
-        Locations = cities.Select(city => new Location(city.Name + ", "+ city.Country))
+        Locations = cities.Select(city => new Location(city.Name + ", " + city.Country))
     }))
 </pre>

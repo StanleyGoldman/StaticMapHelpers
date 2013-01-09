@@ -168,9 +168,7 @@ namespace Molimentum.StaticMapHelpers
         /// <returns></returns>
         public GoogleStaticMapControl CenterOn(double latitude, double longitude)
         {
-            _urlBuilder.Center = new Location(latitude, longitude);
-
-            return this;
+            return CenterOn(new Location(latitude, longitude));
         }
 
         /// <summary>
@@ -180,9 +178,7 @@ namespace Molimentum.StaticMapHelpers
         /// <returns></returns>
         public GoogleStaticMapControl CenterOn(string address)
         {
-            _urlBuilder.Center = new Location(address);
-
-            return this;
+            return CenterOn(new Location(address));
         }
 
         /// <summary>
@@ -250,7 +246,7 @@ namespace Molimentum.StaticMapHelpers
             AddMarker(
                 new Marker
                 {
-                    Locations = new List<Location> { location }
+                    Location = location
                 });
 
             return this;
@@ -289,7 +285,7 @@ namespace Molimentum.StaticMapHelpers
                 new Marker
                 {
                     Style = style,
-                    Locations = new List<Location> { location }
+                    Location = location
                 });
         }
 
@@ -326,7 +322,7 @@ namespace Molimentum.StaticMapHelpers
             return AddMarker(
                 new Marker
                 {
-                    Locations = new List<Location>(locations)
+                    Locations = locations
                 });
         }
 
@@ -338,14 +334,12 @@ namespace Molimentum.StaticMapHelpers
         /// <returns></returns>
         public GoogleStaticMapControl AddMarker(MarkerStyle style, IEnumerable<Location> locations)
         {
-            AddMarker(
+            return AddMarker(
                 new Marker
                 {
                     Style = style,
-                    Locations = new List<Location>(locations)
+                    Locations = locations
                 });
-
-            return this;
         }
 
         /// <summary>
@@ -383,14 +377,12 @@ namespace Molimentum.StaticMapHelpers
         /// <returns></returns>
         public GoogleStaticMapControl AddPath(PathStyle style, IEnumerable<Location> locations)
         {
-            AddPath(
+            return AddPath(
                 new Path
                 {
                     Style = style,
-                    Locations = new List<Location>(locations)
+                    Locations = locations
                 });
-
-            return this;
         }
     }
 }
