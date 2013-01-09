@@ -3,12 +3,18 @@ API V2.
 
 https://developers.google.com/maps/documentation/staticmaps
 
-	@(Html.GoogleStaticMap(320, 200, GoogleMapType.Satellite)
-		.Zoom(5)
-		.AddMarker(new MarkerStyle { Icon = "http://chart.googleapis.com/chart?chst=d_simple_text_icon_below&chld=%7C12%7Cff0000%7Clocation%7C12%7Cff0000" }, new[] { new Location("Whangarei, New Zealand"), new Location("Auckland, New Zealand") })
-		.AddPath(new PathStyle { Color = "green" }, new[] { new Location("Whangarei, New Zealand"), new Location("Auckland, New Zealand") }))
+Usage
+-----
 
-For a few more examples, see the included Demo project.
+1. Install the NuGet package
+
+2. Add maps to your views:
+
+	@(Html.GoogleStaticMap(320, 200, GoogleMapType.Default)
+		.Zoom(10)
+		.AddMarker(new MarkerStyle { Label = "A" }, "Whangarei, New Zealand"))
+
+For more examples, see the included Demo project.
 
 Copyright
 ---------

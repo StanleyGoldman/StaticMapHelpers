@@ -127,11 +127,14 @@ namespace Molimentum.StaticMapHelpers
         {
             var parameters = new ParameterListBuilder(":", "|");
 
-            if (marker.Style.Color != null) parameters.Add("color", marker.Style.Color.ToLower());
-            if (marker.Style.Icon != null) parameters.Add("icon", marker.Style.Icon);
-            if (marker.Style.Label != null) parameters.Add("label", marker.Style.Label);
-            if (marker.Style.Size != MarkerSize.Default) parameters.Add("size", marker.Style.Size.ToString().ToLower());
-            if (!marker.Style.Shadow) parameters.Add("shadow", "false");
+            if (marker.Style != null)
+            {
+                if (marker.Style.Color != null) parameters.Add("color", marker.Style.Color.ToLower());
+                if (marker.Style.Icon != null) parameters.Add("icon", marker.Style.Icon);
+                if (marker.Style.Label != null) parameters.Add("label", marker.Style.Label);
+                if (marker.Style.Size != MarkerSize.Default) parameters.Add("size", marker.Style.Size.ToString().ToLower());
+                if (!marker.Style.Shadow) parameters.Add("shadow", "false");
+            }
 
             foreach (var location in marker.Locations) parameters.Add(location.ToString());
 
@@ -141,15 +144,18 @@ namespace Molimentum.StaticMapHelpers
         /// <summary>
         /// Creates the request parameters for the given path.
         /// </summary>
-        /// <param name="marker">Path to create request parameters for.</param>
+        /// <param name="path">Path to create request parameters for.</param>
         /// <returns>Request parameters for the given path.</returns>
         protected static string CreatePathParameters(Path path)
         {
             var parameters = new ParameterListBuilder(":", "|");
 
-            if (path.Style.Weight != null) parameters.Add("weight", path.Style.Weight.ToString());
-            if (path.Style.Color != null) parameters.Add("color", path.Style.Color.ToLower());
-            if (path.Style.FillColor != null) parameters.Add("fillcolor", path.Style.FillColor.ToLower());
+            if (path.Style != null)
+            {
+                if (path.Style.Weight != null) parameters.Add("weight", path.Style.Weight.ToString());
+                if (path.Style.Color != null) parameters.Add("color", path.Style.Color.ToLower());
+                if (path.Style.FillColor != null) parameters.Add("fillcolor", path.Style.FillColor.ToLower());
+            }
 
             foreach (var location in path.Locations) parameters.Add(location.ToString());
 

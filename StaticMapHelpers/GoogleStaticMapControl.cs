@@ -259,21 +259,63 @@ namespace Molimentum.StaticMapHelpers
         /// <summary>
         /// Creates a new marker and adds it to the control.
         /// </summary>
+        /// <param name="address">Address to be resolved and to used for the location.</param>
+        /// <returns></returns>
+        public GoogleStaticMapControl AddMarker(string address)
+        {
+            return AddMarker(new Location(address));
+        }
+
+        /// <summary>
+        /// Creates a new marker and adds it to the control.
+        /// </summary>
+        /// <param name="latitude">Latitude to use for the location.</param>
+        /// <param name="longitude">Longitude to center the location.</param>
+        /// <returns></returns>
+        public GoogleStaticMapControl AddMarker(double latitude, double longitude)
+        {
+            return AddMarker(new Location(latitude, longitude));
+        }
+
+        /// <summary>
+        /// Creates a new marker and adds it to the control.
+        /// </summary>
         /// <param name="style">Style for the new marker.</param>
         /// <param name="location">Location for the new marker.</param>
         /// <returns></returns>
         public GoogleStaticMapControl AddMarker(MarkerStyle style, Location location)
         {
-            AddMarker(
+            return AddMarker(
                 new Marker
                 {
                     Style = style,
                     Locations = new List<Location> { location }
                 });
-
-            return this;
         }
 
+        /// <summary>
+        /// Creates a new marker and adds it to the control.
+        /// </summary>
+        /// <param name="style">Style for the new marker.</param>
+        /// <param name="address">Address to be resolved and to used for the location.</param>
+        /// <returns></returns>
+        public GoogleStaticMapControl AddMarker(MarkerStyle style, string address)
+        {
+            return AddMarker(style, new Location(address));
+        }
+        
+        /// <summary>
+        /// Creates a new marker and adds it to the control.
+        /// </summary>
+        /// <param name="style">Style for the new marker.</param>
+        /// <param name="latitude">Latitude to use for the location.</param>
+        /// <param name="longitude">Longitude to center the location.</param>
+        /// <returns></returns>
+        public GoogleStaticMapControl AddMarker(MarkerStyle style, double latitude, double longitude)
+        {
+            return AddMarker(style, new Location(latitude, longitude));
+        }
+        
         /// <summary>
         /// Creates a new marker and adds it to the control.
         /// </summary>
@@ -281,13 +323,11 @@ namespace Molimentum.StaticMapHelpers
         /// <returns></returns>
         public GoogleStaticMapControl AddMarker(IEnumerable<Location> locations)
         {
-            AddMarker(
+            return AddMarker(
                 new Marker
                 {
                     Locations = new List<Location>(locations)
                 });
-
-            return this;
         }
 
         /// <summary>

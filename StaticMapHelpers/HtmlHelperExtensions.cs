@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Molimentum.StaticMapHelpers.Extensions
+namespace Molimentum.StaticMapHelpers
 {
     /// <summary>
     /// Extensions for ASP.NET MVC HtmlHelper.
@@ -32,7 +32,7 @@ namespace Molimentum.StaticMapHelpers.Extensions
         public static GoogleStaticMapControl GoogleStaticMap(this HtmlHelper html, int width, int height, GoogleMapType mapType, object htmlAttributes)
         {
             return new GoogleStaticMapControl(width, height, mapType)
-                .UseHttps(html.ViewContext.HttpContext.Request.IsSecureConnection)
+                //.UseHttps(html.ViewContext.HttpContext.Request.IsSecureConnection)
                 .AsImage(htmlAttributes);
         }
     }
