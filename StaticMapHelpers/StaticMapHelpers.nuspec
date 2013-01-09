@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://github.com/tischlda/StaticMapHelpers/MIT-LICENSE.txt</licenseUrl>
+    <projectUrl>http://github.com/tischlda/StaticMapHelpers</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2012 David Tischler</copyright>
+    <tags>ASP.NET MVC Google Static Maps</tags>
+  </metadata>
+</package>

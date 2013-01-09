@@ -1,0 +1,32 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="default">
+    <PropertyGroup>
+        <BaseDir>$(MSBuildProjectDirectory)</BaseDir>
+        <Configuration Condition="'$(Configuration)'==''" >Release</Configuration>
+        <BuildDir>$(BaseDir)\build\$(Configuration)</BuildDir>
+        <SolutionFile>$(BaseDir)\StaticMapHelpers.sln</SolutionFile>
+    </PropertyGroup>
+    
+    <Target Name="default" DependsOnTargets="CompileAndDeploy; Test; Package" />
+    
+    <Target Name="Test">
+        <ItemGroup>
+            <TestProjects Include="*.Tests\*.*proj" />
+        </ItemGroup>
+
+        <MSBuild Projects="@(TestProjects)" Targets="Test" />
+    </Target>
+
+    <Target Name="CompileAndDeploy">
+        <CallTarget Targets="Net45BuildAndDeploy" />
+    </Target>
+    
+    <Target Name="Net45BuildAndDeploy">
+        <MSBuild Projects="$(SolutionFile)" Targets="Clean; Build" Properties="Configuration=$(Configuration);BuildConstants=NET45;TargetFrameworkVersion=v4.5" />        
+    </Target>
+    
+    <Target Name="Package" DependsOnTargets="CompileAndDeploy">
+		<MakeDir Directories="$(BuildDir)" />
+        <Exec WorkingDirectory="$(BaseDir)" 
+              Command="$(BaseDir)\.nuget\nuget.exe pack $(BaseDir)\StaticMapHelpers\StaticMapHelpers.csproj -OutputDirectory $(BuildDir)" />
+    </Target>
+</Project>
