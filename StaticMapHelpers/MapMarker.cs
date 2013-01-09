@@ -2,9 +2,9 @@
 
 namespace Molimentum.StaticMapHelpers
 {
-    public class Marker
+    public class MapMarker
     {
-        public MarkerStyle Style { get; set; }
+        public MapMarkerStyle Style { get; set; }
 
         public IEnumerable<Location> Locations { get; set; }
 

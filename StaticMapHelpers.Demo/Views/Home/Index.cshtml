@@ -16,19 +16,19 @@
 
 @(Html.GoogleStaticMap(320, 200, GoogleMapType.Default)
     .Zoom(10)
-    .AddMarker(new MarkerStyle { Label = "A" }, "Whangarei, New Zealand"))
+    .AddMarker(new MapMarkerStyle { Label = "A" }, "Whangarei, New Zealand"))
 
 <pre>
 @@(Html.GoogleStaticMap(320, 200, GoogleMapType.Default)
     .Zoom(10)
-    .AddMarker(new MarkerStyle { Label = "A" }, "Whangarei, New Zealand"))
+    .AddMarker(new MapMarkerStyle { Label = "A" }, "Whangarei, New Zealand"))
 </pre>
 
 
 <h2>Multiple Markers and a Path</h2>
 <p>
-    This example shows the creation of multiple markers from a model,
-    each one getting a different label, and a path connecting the markers.
+    This example shows the creation of multiple MapMarkers from a model,
+    each one getting a different label, and a MapPath connecting the MapMarkers.
 </p>
 @{
     var cities = new[] {
@@ -40,13 +40,13 @@
 
 @(Html.GoogleStaticMap(320, 200, GoogleMapType.Satellite)
     .AddMarkers(
-        cities.Select((city, index) => new Marker {
-            Style = new MarkerStyle { Label = (index + 1).ToString() },
+        cities.Select((city, index) => new MapMarker {
+            Style = new MapMarkerStyle { Label = (index + 1).ToString() },
             Location = new Location(city.Name + ", " + city.Country)
         })
     )
-    .AddPath(new Molimentum.StaticMapHelpers.Path {
-        Style = new PathStyle { Color = "red", Weight = 5 },
+    .AddPath(new MapPath {
+        Style = new MapPathStyle { Color = "red", Weight = 5 },
         Locations = cities.Select(city => new Location(city.Name + ", " + city.Country))
     }))
 
@@ -61,13 +61,13 @@
 
 @@(Html.GoogleStaticMap(320, 200, GoogleMapType.Satellite)
     .AddMarkers(
-        cities.Select((city, index) => new Marker {
-            Style = new MarkerStyle { Label = (index + 1).ToString() },
+        cities.Select((city, index) => new MapMarker {
+            Style = new MapMarkerStyle { Label = (index + 1).ToString() },
             Location = new Location(city.Name + ", " + city.Country)
         })
     )
-    .AddPath(new Molimentum.StaticMapHelpers.Path {
-        Style = new PathStyle { Color = "red", Weight = 5 },
+    .AddPath(new Molimentum.StaticMapHelpers.MapPath {
+        Style = new MapPathStyle { Color = "red", Weight = 5 },
         Locations = cities.Select(city => new Location(city.Name + ", " + city.Country))
     }))
 </pre>

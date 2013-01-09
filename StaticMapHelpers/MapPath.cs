@@ -2,9 +2,9 @@
 
 namespace Molimentum.StaticMapHelpers
 {
-    public class Path
+    public class MapPath
     {
-        public PathStyle Style { get; set; }
+        public MapPathStyle Style { get; set; }
 
         public IEnumerable<Location> Locations { get; set; }
     }

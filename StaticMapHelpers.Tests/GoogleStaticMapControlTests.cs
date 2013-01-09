@@ -254,21 +254,21 @@ namespace Molimentum.StaticMapHelpers.Tests
             var control = new GoogleStaticMapControl(320, 240, GoogleMapType.Default).AsUrl();
             
             control.AddMarker(
-                new MarkerStyle {
+                new MapMarkerStyle {
                     Color = "red",
                     Icon = "http://test/test1.png",
                     Label = "A",
-                    Size = MarkerSize.Small,
+                    Size = MapMarkerSize.Small,
                     Shadow = false
                 },
                 new[] { new Location("My Location 1"), new Location("My Location 2") }
             );
             control.AddMarker(
-                new MarkerStyle {
+                new MapMarkerStyle {
                     Color = "green",
                     Icon = "http://test/test2.png",
                     Label = "B",
-                    Size = MarkerSize.Tiny
+                    Size = MapMarkerSize.Tiny
                 },
                 new[] { new Location("My Location 3"), new Location("My Location 4") }
             );
@@ -322,7 +322,7 @@ namespace Molimentum.StaticMapHelpers.Tests
             var control = new GoogleStaticMapControl(320, 240, GoogleMapType.Default).AsUrl();
 
             control.AddPath(
-                new PathStyle {
+                new MapPathStyle {
                     Color = "red",
                     FillColor = "green",
                     Weight = 1
@@ -331,7 +331,7 @@ namespace Molimentum.StaticMapHelpers.Tests
             );
 
             control.AddPath(
-                new PathStyle
+                new MapPathStyle
                 {
                     Color = "blue",
                     FillColor = "yellow"

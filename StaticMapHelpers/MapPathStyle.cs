@@ -5,7 +5,7 @@
     /// https://developers.google.com/maps/documentation/staticmaps/#PathStyles
     /// for details.
     /// </summary>
-    public class PathStyle
+    public class MapPathStyle
     {
         /// <summary>
         /// Weight for the path, see

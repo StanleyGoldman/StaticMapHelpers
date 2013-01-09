@@ -23,8 +23,8 @@ namespace Molimentum.StaticMapHelpers
             Height = height;
             MapType = mapType;
 
-            Markers = new List<Marker>();
-            Paths = new List<Path>();
+            Markers = new List<MapMarker>();
+            Paths = new List<MapPath>();
         }
 
         /// <summary>
@@ -45,12 +45,12 @@ namespace Molimentum.StaticMapHelpers
         /// <summary>
         /// Markers to draw on the map.
         /// </summary>
-        public ICollection<Marker> Markers { get; private set; }
+        public ICollection<MapMarker> Markers { get; private set; }
 
         /// <summary>
         /// Paths to draw on the map.
         /// </summary>
-        public ICollection<Path> Paths { get; private set; }
+        public ICollection<MapPath> Paths { get; private set; }
 
         /// <summary>
         /// Sensor usage, see
@@ -123,7 +123,7 @@ namespace Molimentum.StaticMapHelpers
         /// </summary>
         /// <param name="marker">Marker to create request parameters for.</param>
         /// <returns>Request parameters for the given marker.</returns>
-        protected static string CreateMarkerParameters(Marker marker)
+        protected static string CreateMarkerParameters(MapMarker marker)
         {
             var parameters = new ParameterListBuilder(":", "|");
 
@@ -132,7 +132,7 @@ namespace Molimentum.StaticMapHelpers
                 if (marker.Style.Color != null) parameters.Add("color", marker.Style.Color.ToLower());
                 if (marker.Style.Icon != null) parameters.Add("icon", marker.Style.Icon);
                 if (marker.Style.Label != null) parameters.Add("label", marker.Style.Label);
-                if (marker.Style.Size != MarkerSize.Default) parameters.Add("size", marker.Style.Size.ToString().ToLower());
+                if (marker.Style.Size != MapMarkerSize.Default) parameters.Add("size", marker.Style.Size.ToString().ToLower());
                 if (!marker.Style.Shadow) parameters.Add("shadow", "false");
             }
 
@@ -146,7 +146,7 @@ namespace Molimentum.StaticMapHelpers
         /// </summary>
         /// <param name="path">Path to create request parameters for.</param>
         /// <returns>Request parameters for the given path.</returns>
-        protected static string CreatePathParameters(Path path)
+        protected static string CreatePathParameters(MapPath path)
         {
             var parameters = new ParameterListBuilder(":", "|");
 

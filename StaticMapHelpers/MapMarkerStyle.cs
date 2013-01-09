@@ -5,9 +5,9 @@
     /// https://developers.google.com/maps/documentation/staticmaps/#MarkerStyles
     /// for details.
     /// </summary>
-    public class MarkerStyle
+    public class MapMarkerStyle
     {
-        public MarkerStyle()
+        public MapMarkerStyle()
         {
             Shadow = true;
         }
@@ -17,7 +17,7 @@
         /// https://developers.google.com/maps/documentation/staticmaps/#MarkerStyles
         /// for details.
         /// </summary>
-        public MarkerSize Size { get; set; }
+        public MapMarkerSize Size { get; set; }
 
         /// <summary>
         /// Color for the marker, see

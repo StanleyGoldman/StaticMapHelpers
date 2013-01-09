@@ -5,7 +5,7 @@
     /// https://developers.google.com/maps/documentation/staticmaps/#MarkerStyles
     /// for details.
     /// </summary>
-    public enum MarkerSize
+    public enum MapMarkerSize
     {
         Default,
         Tiny,
