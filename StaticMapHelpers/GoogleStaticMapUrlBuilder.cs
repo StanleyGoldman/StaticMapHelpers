@@ -84,6 +84,8 @@ namespace Molimentum.StaticMapHelpers
         /// </summary>
         public Location Center { get; set; }
 
+        public string UsingKey { get; set; }
+
         /// <summary>
         /// Creates the url with the settings that have been
         /// specified before.
@@ -112,6 +114,8 @@ namespace Molimentum.StaticMapHelpers
 
             foreach (var marker in Markers) parameters.Add("markers", CreateMarkerParameters(marker), false);
             foreach (var path in Paths) parameters.Add("path", CreatePathParameters(path), false);
+
+            if (UsingKey != null) parameters.Add("key", UsingKey);
 
             return String.Format("{0}?{1}",
                 UseHttps ? _baseUrlHttps : _baseUrlHttp,

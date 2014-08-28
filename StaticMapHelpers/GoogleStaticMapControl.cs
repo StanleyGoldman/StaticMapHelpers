@@ -102,6 +102,13 @@ namespace Molimentum.StaticMapHelpers
             return this;
         }
 
+        public GoogleStaticMapControl UseKey(string key)
+        {
+            _urlBuilder.UsingKey = key;
+
+            return this;
+        }
+
         /// <summary>
         /// Sets sensor usage to <c>true</c>, see
         /// https://developers.google.com/maps/documentation/staticmaps/
